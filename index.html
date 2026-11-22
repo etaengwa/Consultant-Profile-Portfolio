@@ -457,6 +457,28 @@ html.routed .page:not([data-page="home"]) > section:first-child .h2 { font-size:
 .dv-table td:first-child { color: var(--ink); font-family: var(--font-mono); }
 .dv-table .r { text-align: right; font-variant-numeric: tabular-nums; }
 .dv-tip { position: fixed; z-index: 50; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 0.82rem; padding: 7px 10px; border-radius: 3px; max-width: 260px; box-shadow: 0 4px 16px rgba(0,0,0,.25); }
+
+/* explore grid: chessboard shading */
+.ex-card { background: var(--bg-raised); }
+.ex-card:nth-child(even) { background: var(--bg-sunk); }
+.ex-card:hover, .ex-card:focus-visible { background: var(--bg); }
+@media (max-width: 900px) and (min-width: 561px) {
+  .ex-card:nth-child(4n+1), .ex-card:nth-child(4n+4) { background: var(--bg-raised); }
+  .ex-card:nth-child(4n+2), .ex-card:nth-child(4n+3) { background: var(--bg-sunk); }
+  .ex-card:hover, .ex-card:focus-visible { background: var(--bg); }
+}
+/* expanding letters on clickable things */
+.ex-t, .pn-v, .btn, .btn-leka, .proof-link, .verify-list a, .nav a, .copy-btn {
+  transition: letter-spacing .25s ease, color .2s ease, background .2s ease, border-color .2s ease;
+}
+.ex-card:hover .ex-t, .ex-card:focus-visible .ex-t { letter-spacing: 0.05em; color: var(--brass-strong); }
+.page-next a:hover .pn-v, .page-next a:focus-visible .pn-v { letter-spacing: 0.04em; }
+.btn:hover, .btn:focus-visible, .btn-leka:hover, .btn-leka:focus-visible { letter-spacing: 0.16em; }
+.proof-link:hover, .proof-link:focus-visible, .verify-list a:hover, .verify-list a:focus-visible, .copy-btn:hover, .copy-btn:focus-visible { letter-spacing: 0.18em; }
+.nav a:hover, .nav a:focus-visible { letter-spacing: 0.06em; }
+@media (prefers-reduced-motion: reduce) {
+  .ex-t, .pn-v, .btn, .btn-leka, .proof-link, .verify-list a, .nav a, .copy-btn { transition: none; }
+}
 </style>
 </head>
 <body>
